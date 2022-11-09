@@ -1,0 +1,32 @@
+.auth {
+    position: relative;
+    overflow: hidden;
+    &__title {
+        font-size: 2.5rem;
+    }
+    &__img {
+        height: 100%;
+    }
+    &__form {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: center;
+        color: $violet;
+        font-size: 1.75rem;
+        overflow: hidden;
+        min-height: 100vh;
+        &__title {
+            color: $violetHeavy;
+        }
+        &__input {
+            border: .1rem solid $violetLight;
+            padding: 1rem 1.5rem;
+            border-radius: 3rem;
+            font-size: 1.3rem;
+            width: 25rem;
+        }
+    }
+}

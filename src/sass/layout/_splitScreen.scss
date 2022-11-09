@@ -1,0 +1,9 @@
+.splitScreen {
+    display: flex;
+    &__leftSide {
+        height: 100vh;
+    }
+    &__rightSide {
+        height: 100vh;
+    }
+}

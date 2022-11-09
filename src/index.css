@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  width: 100%;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+.icon--search {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.bluryCircle {
+  position: absolute;
+  z-index: -1;
+  height: 30rem;
+  width: 30rem;
+  border-radius: 50%;
+  background: #8B5CF6;
+}
+
+.header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+.header__search {
+  display: flex;
+  width: 30rem;
+  justify-content: center;
+  align-items: center;
+}
+.header__search__input {
+  width: 90%;
+  padding: 1rem 2rem;
+  background: #DDD6FE;
+  border-radius: 3rem;
+  margin-right: -2.5rem;
+  transition: width 0.2s ease-in;
+}
+.header__search__input:focus {
+  width: 100%;
+}
+.header__links {
+  font-size: 1.3rem;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+}
+.header__link {
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+}
+.header__link--login {
+  background: #8B5CF6;
+  color: #fff;
+}
+.header__link--login:hover {
+  color: #8B5CF6;
+  background: #fff;
+  border: 0.1rem solid #8B5CF6;
+}
+.header__link--register {
+  border: 0.1rem solid rgba(0, 0, 0, 0.5);
+}
+.header__link--register:hover {
+  color: #fff;
+  background: #8B5CF6;
+  border-color: #8B5CF6;
+}
+
+.logo {
+  width: 3.5rem;
+}
+
+.splitScreen {
+  display: flex;
+}
+.splitScreen__leftSide {
+  height: 100vh;
+}
+.splitScreen__rightSide {
+  height: 100vh;
+}
+
+.auth {
+  position: relative;
+  overflow: hidden;
+}
+.auth__title {
+  font-size: 2.5rem;
+}
+.auth__img {
+  height: 100%;
+}
+.auth__form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  color: #8B5CF6;
+  font-size: 1.75rem;
+  overflow: hidden;
+  min-height: 100vh;
+}
+.auth__form__title {
+  color: #5B21B6;
+}
+.auth__form__input {
+  border: 0.1rem solid #DDD6FE;
+  padding: 1rem 1.5rem;
+  border-radius: 3rem;
+  font-size: 1.3rem;
+  width: 25rem;
+}
+
+/*# sourceMappingURL=index.css.map */

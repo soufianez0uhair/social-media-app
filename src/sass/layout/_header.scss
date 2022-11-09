@@ -1,0 +1,61 @@
+.header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    &__search {
+        display: flex;
+        width: 30rem;
+        justify-content: center;
+        align-items: center;
+        &__input {
+            width: 90%;
+            padding: 1rem 2rem;
+            background: $violetLight;
+            border-radius: 3rem;
+            margin-right: -2.5rem;
+            transition: width .2s ease-in;
+            &:focus {
+                width: 100%;
+            }
+        }
+    }
+    &__links {
+        font-size: 1.3rem;
+        font-weight: 500;
+        display: flex;
+        gap: 1rem;
+    }
+    &__link {
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        &--login {
+            background: $violet;
+            color: #fff;
+            &:hover {
+                color: $violet;
+                background: #fff;
+                border: .1rem solid $violet;
+            }
+        }
+        &--register {
+            border: .1rem solid rgba(0,0,0,.5);
+            &:hover {
+                color: #fff;
+                background: $violet;
+                border-color: $violet;
+            }
+        }
+    }
+}
+
+.logo {
+    width: 3.5rem;
+}
