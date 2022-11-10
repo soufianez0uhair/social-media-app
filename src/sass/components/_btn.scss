@@ -1,0 +1,13 @@
+.btn {
+    font-size: 1.5rem;
+    &--auth {
+        background: $violetStrong;
+        color: #fff;
+        padding: .5rem 1rem;
+        border: .1rem solid $violetStrong;
+        &:hover {
+            color: $violetStrong;
+            background: none;
+        }
+    }
+}

@@ -54,6 +54,20 @@ body {
   background: #8B5CF6;
 }
 
+.btn {
+  font-size: 1.5rem;
+}
+.btn--auth {
+  background: #5B21B6;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: 0.1rem solid #5B21B6;
+}
+.btn--auth:hover {
+  color: #5B21B6;
+  background: none;
+}
+
 .header {
   position: fixed;
   z-index: 10;
@@ -157,6 +171,9 @@ body {
   border-radius: 3rem;
   font-size: 1.3rem;
   width: 25rem;
+}
+.auth__form__error {
+  color: rgba(255, 0, 0, 0.877);
 }
 
 /*# sourceMappingURL=index.css.map */

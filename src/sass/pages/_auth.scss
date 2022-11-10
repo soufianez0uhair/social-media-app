@@ -19,7 +19,7 @@
         overflow: hidden;
         min-height: 100vh;
         &__title {
-            color: $violetHeavy;
+            color: $violetStrong;
         }
         &__input {
             border: .1rem solid $violetLight;
@@ -27,6 +27,9 @@
             border-radius: 3rem;
             font-size: 1.3rem;
             width: 25rem;
+        }
+        &__error {
+            color: rgba(255, 0, 0, 0.877);
         }
     }
 }
