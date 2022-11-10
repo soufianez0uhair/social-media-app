@@ -4,7 +4,7 @@ import axios from 'axios';
 import { USER_API } from "../Api";
 
 const initialState = {
-    user: localStorage.getItem('user') || null,
+    user: JSON.parse(localStorage.getItem('user')) || null,
     status: 'idle',
     error: null
 }
@@ -20,6 +20,20 @@ export const registerUser = createAsyncThunk('auth/registerUser', async (credent
         }
 
         throw thunkAPI.rejectWithValue(err.response.data.message)
+    }
+})
+
+export const loginUser = createAsyncThunk('auth/loginUser', async (credentials, thunkAPI) => {
+    try {
+        const response = await axios.post(`${USER_API}/login`, credentials);
+
+        return response.data;
+    } catch(err) {
+        if(!err.response) {
+            throw err.message;
+        }
+
+        throw thunkAPI.rejectWithValue(err.response.data.message);
     }
 })
 
@@ -39,9 +53,21 @@ const authSlice = createSlice({
             .addCase(registerUser.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.user = action.payload;
-                localStorage.setItem('user', )
+                localStorage.setItem('user', JSON.stringify(action.payload));
             })
             .addCase(registerUser.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.payload;
+            })
+            .addCase(loginUser.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(loginUser.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.auth = action.payload;
+                localStorage.setItem('user', JSON.stringify(action.payload));
+            })
+            .addCase(loginUser.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.payload;
             })
