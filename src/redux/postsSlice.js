@@ -10,7 +10,7 @@ const initialState = {
     error: null
 }
 
-const fetchPosts = createAsyncThunk('posts/fetchPosts', async (thunkAPI) => {
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (thunkAPI) => {
     try {
         const response = await axios.get(POSTS_API);
 
@@ -21,6 +21,25 @@ const fetchPosts = createAsyncThunk('posts/fetchPosts', async (thunkAPI) => {
         }
 
         throw thunkAPI.rejectWithValue(err.response.data.message);
+    }
+})
+
+export const addPost = createAsyncThunk('posts/addPost', async (post, thunkAPI) => {
+    try {
+        const response = await axios.post(POSTS_API, post, {
+            headers: {
+                authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+
+        return response.data.post;
+    } catch(err) {
+        if(!err.response) {
+            throw err.message;
+        }
+
+        throw thunkAPI.rejectWithValue(err.response.data.message); 
     }
 })
 
@@ -42,6 +61,17 @@ const postsSlice = createSlice({
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.payload;
+            })
+            .addCase(addPost.fulfilled, (state, action) => {
+                action.payload.likes = {
+                    likes: [],
+                    loves: [],
+                    wows: [],
+                    haha: []
+                };
+                action.payload.comments = [];
+                action.payload.shares = [];
+                state.posts.unshift(action.payload);
             })
     }
 })
