@@ -12,7 +12,11 @@ const initialState = {
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (thunkAPI) => {
     try {
-        const response = await axios.get(POSTS_API);
+        const response = await axios.get(POSTS_API, {
+            headers: {
+                authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+            }
+        });
 
         return response.data.posts;
     } catch(err) {
@@ -56,7 +60,19 @@ const postsSlice = createSlice({
             })
             .addCase(fetchPosts.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.posts = action.payload;
+                state.posts = action.payload.map(post => {
+                    if(post.img) {
+                        const blob = new Blob([Int8Array.from(post.img.data.data), {type: post.img.contentType}]);
+
+                        post.img = URL.createObjectURL(blob);
+                    } else if(post.video) {
+                        const blob = new Blob([Int8Array.from(post.video.data.data), {type: post.video.contentType}]);
+
+                        post.video = URL.createObjectURL(blob);
+                    }
+
+                    return post;
+                })
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = 'failed';

@@ -3,4 +3,18 @@
     &--search {
         color: rgba(0,0,0,.5);
     }
+    &--media {
+        color: $violet;
+        font-size: 2rem;
+        transition: opacity .2s ease-in;
+        &:hover {
+            opacity: .5;
+        }
+    }
+    &--reaction {
+        font-size: 2rem;
+        &:hover {
+            color: $violet;
+        }
+    }
 }

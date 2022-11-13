@@ -4,7 +4,13 @@ import {AiOutlineSearch} from 'react-icons/ai';
 
 import { Link } from 'react-router-dom';
 
+import {useSelector} from 'react-redux';
+import { selectUser } from '../redux/authSlice';
+import AuthLinks from './AuthLinks';
+
 const Header = () => {
+    const user = useSelector(selectUser);
+
     return (
         <header className="header">
             <img src={Logo} alt="twitter purple logo" className="logo" />
@@ -12,10 +18,7 @@ const Header = () => {
                 <input type="text" placeholder="Search.." className="header__search__input" />
                 <AiOutlineSearch className="icon icon--search" />
             </form>
-            <div className="header__links">
-                <Link className="header__link header__link--login" to="/login">Login</Link>
-                <Link className="header__link header__link--register" to="/register">Register</Link>
-            </div>
+            {!user ? <AuthLinks /> : <Link to="/" className="header__link">Home</Link> }
         </header>
     )
 }

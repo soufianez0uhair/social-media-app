@@ -10,4 +10,16 @@
             background: none;
         }
     }
+    &--post {
+        position: absolute;
+        right: 2rem;
+        bottom: 2rem;
+        padding: .5rem 1rem;
+        background: $violetStrong;
+        color: #fff;
+        border-radius: .3rem;
+        &:hover {
+            background: $violet;
+        }
+    }
 }

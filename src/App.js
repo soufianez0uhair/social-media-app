@@ -4,6 +4,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import SplitScreen from "./layout/SplitScreen";
 import AuthImg from "./components/AuthImg";
+import Home from "./pages/Home";
 
 import PartyImg from './assets/pexels-wendy-wei-1540406.jpg';
 import CoupleImg from './assets/pexels-monstera-5876454.jpg';
@@ -22,6 +23,7 @@ const App = () => {
             <AuthImg img={CoupleImg} />
             <Login />
           </SplitScreen>} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Router>
     </main>
